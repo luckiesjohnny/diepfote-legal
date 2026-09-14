@@ -9,10 +9,9 @@ Deutschland
 
 **Kontakt**
 E-Mail: finja.dogs@gmail.com
-Telefon: [TELEFONNUMMER — optional, aber eine zweite schnelle Kontaktmöglichkeit neben der E-Mail ist Pflicht; alternativ ein Kontaktformular verlinken]
 
-**Umsatzsteuer-Identifikationsnummer**
-[USt-IdNr. gemäß § 27 a UStG — nur angeben, wenn vorhanden. Bei Kleinunternehmerregelung nach § 19 UStG diese Zeile streichen und stattdessen ergänzen: „Kleinunternehmer im Sinne von § 19 UStG, es wird keine Umsatzsteuer ausgewiesen."]
+**Umsatzsteuer**
+Kleinunternehmer im Sinne von § 19 UStG, es wird keine Umsatzsteuer ausgewiesen.
 
 **Verantwortlich für redaktionelle Inhalte gemäß § 18 Abs. 2 MStV**
 Fabian Klemusch, Anschrift wie oben
