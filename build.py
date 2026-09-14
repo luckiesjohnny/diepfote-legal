@@ -101,11 +101,35 @@ def md_to_html(md):
     return "\n".join(aus)
 
 
+VERBOTEN = [
+    (re.compile(r"nicht f\u00fcr die Ver\u00f6ffentlichung", re.I), "redaktionelle Anmerkung"),
+    (re.compile(r"Hinweis f\u00fcr dich", re.I), "redaktionelle Anmerkung"),
+    (re.compile(r"\[[A-Z\u00c4\u00d6\u00dc][A-Z\u00c4\u00d6\u00dc0-9 ./\u00a7-]{3,}\]"), "ungefuellter Platzhalter"),
+]
+
+
+def pruefen(name, md):
+    """Bricht ab, bevor etwas veroeffentlicht wird, das niemand lesen soll.
+
+    Der Anlass: Im Impressum stand eine Anmerkung an den Autor, eingeleitet mit "Hinweis fuer
+    dich, nicht fuer die Veroeffentlichung" - und stand damit ab dem ersten Build im Netz.
+    Solche Notizen gehoeren in die README des App-Repositories, Platzhalter gar nirgendwohin.
+    """
+    for zeilennr, zeile in enumerate(md.split("\n"), 1):
+        for muster, art in VERBOTEN:
+            if muster.search(zeile):
+                raise SystemExit(
+                    "ABBRUCH: %s in src/%s.md, Zeile %d:\n  %s"
+                    % (art, name, zeilennr, zeile.strip())
+                )
+
+
 def main():
     hier = os.path.dirname(os.path.abspath(__file__))
     for name, titel in SEITEN:
         quelle = os.path.join(hier, "src", name + ".md")
         md = io.open(quelle, encoding="utf-8").read()
+        pruefen(name, md)
         nav = "".join(
             '<a href="%s.html"%s>%s</a>' % (n, ' class="hier"' if n == name else "", t)
             for n, t in SEITEN

@@ -21,13 +21,6 @@ Fabian Klemusch, Anschrift wie oben
 Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
 Verbraucherschlichtungsstelle teilzunehmen.
 
-> **Hinweis für dich, nicht für die Veröffentlichung:** Der früher übliche Link auf die
-> EU-Plattform zur Online-Streitbeilegung (OS-/ODR-Plattform) gehört **nicht** mehr hierher.
-> Die Plattform wurde zum 20. Juli 2025 eingestellt und die Hinweispflicht ist mit der Aufhebung
-> der ODR-Verordnung entfallen. Viele im Netz kursierende Impressum-Vorlagen sind an dieser
-> Stelle veraltet. Die Erklärung zur Verbraucherschlichtung nach § 36 VSBG bleibt dagegen
-> erforderlich — der Satz oben deckt sie ab.
-
 ## Haftung für Inhalte
 
 Die Inhalte dieser App wurden mit Sorgfalt erstellt. Die tiermedizinischen Informationen —
