@@ -1,6 +1,6 @@
 # Datenschutzerklärung
 
-Stand: 23. September 2026
+Stand: 28. September 2026
 
 ## 1. Verantwortlicher
 
@@ -14,8 +14,9 @@ liegen nicht vor.
 ## 2. Der Grundsatz: Deine Daten bleiben auf deinem Gerät
 
 Die Pfote hat **keine Benutzerkonten, keine Anmeldung und keinen Server**, auf dem deine Daten
-liegen. Alles, was du erfasst — Hundeprofile, Impfungen, Medikationen, Gewichtsverlauf,
-Rechnungen und Tierarzt-Favoriten — wird ausschließlich lokal auf deinem Gerät gespeichert, und
+liegen. Alles, was du erfasst — Hundeprofile, Impfungen, Medikationen und abgehakte Gaben, Zecken- und
+Wurmschutz, Beobachtungen aus dem Tagebuch, Gewichtsverlauf, Rechnungen und Tierarzt-Favoriten —
+wird ausschließlich lokal auf deinem Gerät gespeichert, und
 zwar verschlüsselt (AES-256-GCM, Schlüssel im Android-Keystore). Das Profilfoto deines Hundes
 liegt als Bilddatei im privaten Speicherbereich der App, auf den andere Apps keinen Zugriff
 haben, und ist dort durch die Geräteverschlüsselung von Android geschützt.
@@ -30,18 +31,35 @@ einwilligungsfrei.
 ## 3. Wann Daten das Gerät doch verlassen
 
 Das geschieht in genau den fünf Fällen, die hier beschrieben sind. Bei jeder dieser Anfragen
-erhält der Empfänger technisch bedingt auch die IP-Adresse deines Geräts.
+erhält der erste Empfänger technisch bedingt auch die IP-Adresse deines Geräts – bei der
+Tierarztsuche ist das unser Relais (3.1), nicht HERE.
 
-### 3.1 Tierarztsuche und Notdienst-Umkreis (HERE Technologies)
+### 3.1 Tierarztsuche und Notdienst-Umkreis (HERE Technologies, über unser Relais bei Cloudflare)
 
 **Was übertragen wird:** deine Standortkoordinaten, auf etwa 100 Meter gerundet (seit Version
 1.29.2; vorher ungerundet), beziehungsweise dein eingegebener Suchbegriff (Ort, Postleitzahl).
 Öffnest du eine Praxis, zusätzlich deren Koordinaten, um die Fahrzeit dorthin zu berechnen.
-**An wen:** HERE Global B.V., Niederlande — Betreiber der genutzten Karten- und Ortsdienste.
+**An wen:** zuerst an unser Relais, einen Dienst, den wir bei Cloudflare, Inc., 101 Townsend St,
+San Francisco, CA 94107, USA, betreiben. Es leitet die Anfrage an HERE Global B.V., Niederlande —
+Betreiber der genutzten Karten- und Ortsdienste — weiter. HERE erhält dabei nicht die
+IP-Adresse deines Geräts, sondern die von Cloudflare. Das Relais gibt es, damit der
+Zugangsschlüssel zu HERE nicht in der App steht, wo ihn jeder auslesen könnte.
+**Beim Relais:** Unser Relais speichert weder deine Anfragen noch die Antworten; seine
+Protokollfunktion ist abgeschaltet. Um Missbrauch zu begrenzen, verwendet es deine IP-Adresse
+als gekürzten Hashwert, nur im Arbeitsspeicher und nur für die laufende Minute; diese Zählung
+läuft in Rechenzentren in der EU. Gespeichert wird allein, wie viele Anfragen an einem Tag und
+in einem Monat insgesamt eingegangen sind. Unabhängig davon verarbeitet Cloudflare als Betreiber der
+Infrastruktur technisch bedingt Verbindungsdaten einschließlich deiner IP-Adresse für eine
+begrenzte Zeit in Rechenzentren in der EU und in den USA. Cloudflare handelt dabei als
+Auftragsverarbeiter (Art. 28 DSGVO) nach seinem Auftragsverarbeitungsvertrag und ist nach dem
+EU-US Data Privacy Framework zertifiziert (Angemessenheitsbeschluss der EU-Kommission, Art. 45
+DSGVO); entfällt die Zertifizierung, gelten die Standardvertragsklauseln dieses Vertrags.
 **Wofür:** um Tierarztpraxen und Kliniken in deiner Umgebung zu finden, die Fahrzeit zu einer
 Praxis zu schätzen, Koordinaten in einen Ortsnamen aufzulösen und zu bestimmen, welche
 Landestierärztekammer für den tierärztlichen Notdienst an deinem Ort zuständig ist.
 **Rechtsgrundlage:** Art. 6 Abs. 1 lit. b DSGVO (Erfüllung der von dir angeforderten Funktion).
+Für die Begrenzung der Anfragen je IP-Adresse Art. 6 Abs. 1 lit. f DSGVO: Unser berechtigtes
+Interesse ist, die Tierarztsuche vor Missbrauch zu schützen und für alle verfügbar zu halten.
 Der Zugriff auf den Gerätestandort setzt zusätzlich deine Freigabe über die
 Android-Berechtigung voraus; diese kannst du jederzeit in den Systemeinstellungen widerrufen.
 **Was nicht übertragen wird:** keine Angaben zu dir, deinem Hund, deinen Rechnungen oder
@@ -122,10 +140,14 @@ bis du den Eintrag löschst.
 
 ## 5. Benachrichtigungen
 
-Erinnerungen an fällige Impfungen und auslaufende Medikationen werden vollständig auf deinem
-Gerät berechnet und dort als lokale Benachrichtigung angezeigt. Es findet keine Übertragung an
-einen Server statt (kein Push-Dienst). Die Berechtigung für Benachrichtigungen kannst du
-jederzeit in den Systemeinstellungen entziehen.
+Erinnerungen an fällige Impfungen, fälligen Zecken- und Wurmschutz, auslaufende Medikationen und
+an die Gaben aus deinem Medikamentenplan werden vollständig auf deinem Gerät berechnet und dort als
+lokale Benachrichtigung angezeigt. Es findet keine Übertragung an einen Server statt (kein
+Push-Dienst). Damit die Erinnerung an eine Gabe auch nach einem Neustart des Geräts kommt, stellt
+die App ihren Wecker nach dem Hochfahren neu (Berechtigung „Beim Start ausführen“). Auf die
+Minute kommt sie, wenn du der App „Wecker und Erinnerungen“ erlaubst; ohne diese Freigabe darf
+Android sie bis zu einer Stunde verschieben. Beide Berechtigungen kannst du jederzeit in den
+Systemeinstellungen entziehen.
 
 ## 6. Was diese App nicht tut
 
