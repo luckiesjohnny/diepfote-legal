@@ -31,8 +31,8 @@ einwilligungsfrei.
 ## 3. Wann Daten das Gerät doch verlassen
 
 Das geschieht in genau den fünf Fällen, die hier beschrieben sind. Bei jeder dieser Anfragen
-erhält der erste Empfänger technisch bedingt auch die IP-Adresse deines Geräts – bei der
-Tierarztsuche ist das unser Relais (3.1), nicht HERE.
+erhält der Empfänger technisch bedingt auch die IP-Adresse deines Geräts – bei der Tierarztsuche
+unser Relais und über dieses auch HERE (3.1).
 
 ### 3.1 Tierarztsuche und Notdienst-Umkreis (HERE Technologies, über unser Relais bei Cloudflare)
 
@@ -41,9 +41,10 @@ Tierarztsuche ist das unser Relais (3.1), nicht HERE.
 Öffnest du eine Praxis, zusätzlich deren Koordinaten, um die Fahrzeit dorthin zu berechnen.
 **An wen:** zuerst an unser Relais, einen Dienst, den wir bei Cloudflare, Inc., 101 Townsend St,
 San Francisco, CA 94107, USA, betreiben. Es leitet die Anfrage an HERE Global B.V., Niederlande —
-Betreiber der genutzten Karten- und Ortsdienste — weiter. HERE erhält dabei nicht die
-IP-Adresse deines Geräts, sondern die von Cloudflare. Das Relais gibt es, damit der
-Zugangsschlüssel zu HERE nicht in der App steht, wo ihn jeder auslesen könnte.
+Betreiber der genutzten Karten- und Ortsdienste — weiter. Cloudflare gibt dabei technisch bedingt
+die IP-Adresse deines Geräts in einer Kopfzeile der Anfrage an HERE weiter; das lässt sich bei
+Cloudflare nicht abschalten. Das Relais gibt es, damit der Zugangsschlüssel zu HERE nicht in der
+App steht, wo ihn jeder auslesen könnte.
 **Beim Relais:** Unser Relais speichert weder deine Anfragen noch die Antworten; seine
 Protokollfunktion ist abgeschaltet. Um Missbrauch zu begrenzen, verwendet es deine IP-Adresse
 als gekürzten Hashwert, nur im Arbeitsspeicher und nur für die laufende Minute; diese Zählung
