@@ -1,6 +1,6 @@
 # Datenschutzerklärung
 
-Stand: 28. September 2026
+Stand: 29. September 2026
 
 ## 1. Verantwortlicher
 
@@ -104,12 +104,15 @@ neuere Version bereitsteht (Google Play In-App Updates). Die App selbst übertr�
 welche Daten der Play Store für diese Abfrage an Google übermittelt, richtet sich nach den
 Datenschutzhinweisen von Google.
 
-### 3.5 Diagnosedaten der Texterkennung (Google ML Kit)
+### 3.5 Diagnosedaten von Texterkennung und Dokumentenscanner (Google ML Kit)
 
-Wenn du eine Rechnung oder einen Impfstoff-Aufkleber scannst, erkennt Google ML Kit den Text auf
-deinem Gerät (siehe Abschnitt 4). **Bild und erkannter Text werden dabei nicht übertragen.**
-ML Kit sendet aber technische Diagnose- und Nutzungsdaten an Google, und Google sieht nicht vor,
-dass eine App das abschaltet.
+Wenn du eine Rechnung oder eine Seite deines Impfpasses scannst, nimmt der Dokumentenscanner von
+Google ML Kit sie auf, und ML Kit erkennt den Text — beides auf deinem Gerät (siehe Abschnitt 4).
+**Bild und erkannter Text werden dabei nicht übertragen.** ML Kit sendet aber technische
+Diagnose- und Nutzungsdaten an Google, und Google sieht nicht vor, dass eine App das abschaltet.
+Den Dokumentenscanner laden die Google-Play-Dienste deines Geräts beim ersten Gebrauch
+herunter; welche Daten sie dabei an Google übermitteln, richtet sich nach den
+Datenschutzhinweisen von Google.
 
 **Was übertragen wird:** nach Angaben von Google Geräteinformationen (Hersteller, Modell,
 Android-Version, verfügbare Rechenbeschleuniger), App-Informationen (Paketname, Version),
@@ -119,19 +122,25 @@ Gerät eindeutig identifizieren soll. Bei der Rechnungsauswertung mit dem Sprach
 kommen die eingestellten Sprachen hinzu.
 **An wen:** Google LLC, USA. Google ist nach dem EU-US Data Privacy Framework zertifiziert.
 **Wofür:** Fehlerdiagnose und Nutzungsauswertung der ML-Kit-Dienste durch Google.
-**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse ist eine
-Texterkennung, die Rechnungen und Impfdaten auf dem Gerät auswertet, statt sie in eine Cloud zu
-schicken.
+**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse sind ein Scanner
+und eine Texterkennung, die Rechnungen und Impfdaten auf dem Gerät erfassen und auswerten, statt
+sie in eine Cloud zu schicken.
 
 ## 4. Kamera, Fotos und die Auswertung von Rechnungen
 
-Fotos, die du von einer Rechnung oder einem Impfstoff-Aufkleber aufnimmst oder aus deiner
-Galerie auswählst, liest die App einmal aus und verwirft sie danach; eine Kamera-Aufnahme liegt
-nur bis dahin im Zwischenspeicher der App. Gespeichert wird allein das Ergebnis — Praxis, Datum,
-Positionen, Beträge beziehungsweise Präparat und Charge — in deiner verschlüsselten Akte.
+Rechnungen und Seiten deines Impfpasses nimmst du mit dem Dokumentenscanner von Google ML Kit
+auf. Er läuft in den Google-Play-Diensten auf deinem Gerät und nutzt deren Kamerazugriff — die
+App selbst hat keine Kameraberechtigung und bekommt nur das Bild, das du im Scanner übernimmst.
+Wo es den Scanner nicht gibt, öffnet sich stattdessen die Kamera-App deines Telefons; einen
+einzelnen Impfstoff-Aufkleber fotografierst du immer mit ihr.
 
-Die Texterkennung und die Auswertung der Rechnung nach der Gebührenordnung für Tierärzte laufen
-**vollständig auf deinem Gerät** (Google ML Kit, lokale Modelle). Bilder und erkannter Text
+Aufnahmen und Bilder, die du aus deiner Galerie auswählst, liest die App einmal aus und verwirft
+sie danach; eine Aufnahme liegt nur bis dahin im Zwischenspeicher der App. Gespeichert wird
+allein das Ergebnis — Praxis, Datum, Positionen, Beträge beziehungsweise Präparat und Charge — in
+deiner verschlüsselten Akte.
+
+Scanner, Texterkennung und die Auswertung der Rechnung nach der Gebührenordnung für Tierärzte
+laufen **vollständig auf deinem Gerät** (Google ML Kit, lokale Modelle). Bilder und erkannter Text
 verlassen dein Gerät dabei nicht; zu den technischen Diagnosedaten, die ML Kit an Google sendet,
 siehe Abschnitt 3.5. Vor der Auswertung entfernt die App personenbezogene Angaben aus dem
 erkannten Text — unter anderem IBAN, Rechnungs- und Kundennummern sowie Namen.
